@@ -1,11 +1,26 @@
-body {
-	font-size: 14px;
+p {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
 }
 
-.info {
-	font-family: monospace;
+.centre-horizontal {
+	text-align: center;
+	margin: auto;
 }
 
-#date {
-	font-size: 120%;
+.bar {
+	height: 50px;
+	width: 90%;
+	background-color: #ededed;
+	border-radius: 25px;
+}
+
+.green {
+	color: #fff;
+	background-color: #41AF60
+}
+
+.light-grey {
+	color: #000
+	background-color: #f1f1f1
 }

@@ -1,20 +1,30 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>
-		Megan and Josh's Wedding
-	</title>
-	<link rel="stylesheet" type="text/css" href="/css.css">
+	<title>Time Until Wedding!</title>
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
 </head>
 <body>
-	<div class="info">
-		<p>Hi, Megan and I are getting married on <span id="date">July 21st!</span></p>
-	</div>
-		<p>We would appreciate it if you could fill out this google form to let us know that you're coming:</p>
-		<button>RSVP</button>
-		<p>Here is our list of places we have created registries:</p>
-			<ul>
-				<li>Canadian Tire</li>
-			</ul>
+		<div class="centre-horizontal">
+			<p style="font-size: 50px; color: #41AF60;">MARRIAGE LOADING</p>
+				<div class="light-grey bar" style="margin: auto;">
+					<div id="active" class="green" style="height: 50px; border-radius: 25px;"></div>
+						<script>
+							var start = new Date(2018,0,4),
+		 					end = new Date(2018,6,21),
+		 					today = new Date();
+
+		 					var q = Math.abs(today-start);
+		 					var d = Math.abs(end-start);
+							
+							document.getElementById("active").style.width = (q/d)*100 + "%";
+						</script>
+				</div>
+			<p id="percent" style="font-weight: 700; color: #41AF60; font-size: 60px;"></p>
+				<script>
+					document.getElementById("percent").innerHTML = +Math.round((q/d)*100) + "%";
+				</script>
+		</div>
 </body>
-</html> -->
+</html>

@@ -1,30 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Wedding Countdown</title>
+	<title>Joshua and Megan's Wedding</title>
 	<link rel="stylesheet" type="text/css" href="css.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
 </head>
 <body>
 	<div class="centre-horizontal">
-		<p style="font-size: 50px; color: #41AF60;">AMOUNT OF ENGAGEMENT COMPLETED</p>
-		<div class="light-grey bar" style="margin: auto;">
-			<div id="active" class="green" style="height: 50px; border-radius: 25px;"></div>
-				<script>
-					var start = new Date(2018,0,4),
- 					end = new Date(2018,6,21),
- 					today = new Date();
+		<h1>Wedding Registry</h1>
+		<p>
+			Canadian Tire
+			<br>
+			Home Outfitters/Hudson's Bay Home
+		</p>
 
- 					var q = Math.abs(today-start);
- 					var d = Math.abs(end-start);
-					
-					document.getElementById("active").style.width = (q/d)*100 + "%";
-				</script>
-		</div>
-		<p id="percent" style="font-weight: 700; color: #41AF60; font-size: 60px;"></p>
-			<script>
-				document.getElementById("percent").innerHTML = +Math.round((q/d)*100) + "%";
-			</script>
 	</div>
 </body>
 </html>

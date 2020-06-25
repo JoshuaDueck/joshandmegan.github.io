@@ -14,22 +14,31 @@
 		<p>Find me on <a href="https://www.github.com/JoshuaDueck">GitHub</a></p>
 		<h1>Personal Projects:</h1>
 		
-		<button id="recip-button">Recipe Coordinator</button>
+		<p><a id="recip-button">Recipe Coordinator</a></p>
 
 		<div id="recip-modal" class="modal">
 			<div class="modal-content">
 				<span class="close">&times;</span>
-				<p>IMAGES</p>
+				<br>
+				<p><em>Note: This project is a work in progress. Many things in this application are unfinished; in the code, as well as in the appearance of the project. Anything that looks out of place, is likely a placeholder for something more polished.</em></p>
+				<p>This project expanded my knowledge of many topics. First of all, I learned how to work with a database using Django. Since I didn't know python, let alone Django, I worked hard to learn the language as quickly as possible, then followed the documentation of Django to get started. I learned a lot about Object Relational Mapping, as well as how HTML/CSS interacts with database elements. I am continuing to learn about networking concepts, such as requests, web-hosting, and other back-end essentials.</p>
+				<img class="modal-image" src="./ingredients_screenshot.png" alt="Screenshot of ingredient page.">
+				<p>The idea behind this web application is to organize and estimate recipes and their prices. It allows the user to enter ingredients and their prices in order to localize the cost to their preferred vendor. It automatically estimates the price per cup if the user doesn't fill out that input.</p>
+				<img class="modal-image" src="./recipe_screenshot.png" alt="Screenshot of recipe page.">
+				<p>It also allows for recipes to be stored and viewed, which will be useful later when I implement a scaling system which scales price (and time required, potentially). This system will be used for catering or meal prepping.</p>
+				<img class="modal-image" src="./recipe_adder.png" alt="Screenshot of recipe adding modal box">
+				<p>I am currently working on the form used to add a new recipe. The modal pop-up works well, but I am still learning how to add a new set of form inputs when the user adds an ingredient and amount so the user can add multiple ingredients and amounts as they please.</p>
+				<p>Currently, the user can choose an ingredient from the list of ingredients in the database (the input has an auto-fill dropdown). The idea is that they choose the ingredient and the quantity of that ingredient used in this recipe. At that point, a scaled ingredient object is created, which then scales the price based on the original price and price per cup. This object is added to the recipe object, which uses the added scaled ingredients to calculate the recipe price. At that point, the user would be able to compile a list of recipes for a catering event or something similar and could estimate costs and time required.</p>
 			</div>
 		</div>
 	</div>
 
 	<script>
 		// Get the modal
-		var modal = document.getElementById("myModal");
+		var modal = document.getElementById("recip-modal");
 
 		// Get the button that opens the modal
-		var btn = document.getElementById("myBtn");
+		var btn = document.getElementById("recip-button");
 
 		// Get the <span> element that closes the modal
 		var span = document.getElementsByClassName("close")[0];

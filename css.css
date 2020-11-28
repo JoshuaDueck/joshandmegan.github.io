@@ -80,3 +80,10 @@ h1 {
 #recip-button:hover {
 	cursor: pointer;
 }
+
+.project-link {
+	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	color: #6666ff;
+}

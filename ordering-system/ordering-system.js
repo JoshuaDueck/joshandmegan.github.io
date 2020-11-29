@@ -5,11 +5,30 @@ const e = React.createElement;
 class OrderingSystem extends React.Component {
     constructor(props){
         super(props);
+        const searchParams = new URLSearchParams(window.location.search);
+        var i = 0;
+        var newOrders = [];
+        var newImages =[];
+        while (decodeURIComponent(searchParams.get(i)) !="null") 
+        {
+            var name = decodeURIComponent(searchParams.get(i))
+            var obj = JSON.parse(name);
+            var orderobj = obj.props;
+            newOrders = newOrders.concat(<OrderItem orderRestaurantName = {orderobj.orderRestaurantName} orderItemName = {orderobj.orderItemName} orderItemCost = {orderobj.orderItemCost} orderItemNotes={orderobj.orderItemNotes} orderItemID={orderobj.orderItemID}/>);
+            if (orderobj.orderRestaurantName == "Pizza Time"){
+                newImages = newImages.concat(<ImageItem imageLink="src/pizza-2.png"  orderItemID={orderobj.orderItemID}/>)
+            }
+            else if (orderobj.orderRestaurantName =="Burger Queen"){
+                newImages = newImages.concat(<ImageItem imageLink="src/burger-transparent-bg-2.png"  orderItemID={orderobj.orderItemID}/>)
+            }
+            console.log(JSON.stringify(newImages, null, 4));
+            i= i +1;
+        }
         this.state = {
             selectedRestaurant: -1,
-            orders: [],
+            orders: newOrders,
             currentOrderItemID: 0,
-            orderImages: []
+            orderImages: newImages
         };
         this.handleRestaurantSelect = this.handleRestaurantSelect.bind(this);
         this.handleMenuItemSubmit = this.handleMenuItemSubmit.bind(this);
@@ -21,12 +40,13 @@ class OrderingSystem extends React.Component {
         const newOrderArray = this.state.orders.slice();
         const newOrderImageArray = this.state.orderImages.slice();
         for(let i = 0; i < newOrderArray.length; i++){
-            if(newOrderArray[i].props.orderItemID == itemID){
+            if(newOrderArray[i].props.orderItemID === itemID){
                 newOrderArray.splice(i, 1);
             }
         }
+        console.log(JSON.stringify(newOrderArray, null, 4));
         for(let i = 0; i < newOrderImageArray.length; i++){
-            if(newOrderImageArray[i].props.orderItemID == itemID){
+            if(newOrderImageArray[i].props.orderItemID === itemID){
                 newOrderImageArray.splice(i,1);
             }
         }

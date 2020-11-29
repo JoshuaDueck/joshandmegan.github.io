@@ -52,7 +52,8 @@ class CheckoutSystem extends React.Component {
     handleChange(event){
         this.setState({[event.target.name]: event.target.value});
     }
-    handlemyAddress(newSelected){
+    handlemyAddress(event, newSelected){
+        event.preventDefault();
         this.setState({myAddress:newSelected});
         $("#editModal").modal('hide');
     }
@@ -97,7 +98,7 @@ class CheckoutSystem extends React.Component {
         
     }
     saveOrder(){
-        alert("Your set of orders is saved");
+        alert("This order has been saved! (Or at least it would be if this were a functioning application!)");
 
     }
     
@@ -181,13 +182,13 @@ class MyInfoColumn extends React.Component {
 				                    </div>
 				                    <div class="modal-body">
 					                    <h2>Enter your new address:</h2>
-                                        <form id="address">
+                                        <form id="address" onSubmit={()=> this.props.handleClick(event, this.state.myAddress)}>
                                             <input name="myAddress" class="form-control" type="text" onChange={this.handleChange}/>
                                         </form>
 				                    </div>
 				                    <div class="modal-footer">
 					                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" onClick={()=> this.props.handleClick(this.state.myAddress)}>Edit</button>
+                                    <input id="address-submit-button" type="submit" value="Save" class="btn btn-primary" form="address"></input>
 				                    </div>
 			                    </div>
 		                    </div>
@@ -206,9 +207,9 @@ class MyInfoColumn extends React.Component {
                     <select name="infoMyTime" class="form-control-xs"  onChange={this.handleChange}>
                             <option value="As soon as possible">As soon as possible</option>
                             <option value="in 30 minutes">in 30 minutes</option>
-                            <option value="in One hour">in One hour</option>
-                            <option value="in One hour and 30 minutes">in One hour and 30 minutes</option>
-                            <option value="in Two hours">in Two hours</option>
+                            <option value="in 1 hour">in 1 hour</option>
+                            <option value="in 1 hour and 30 minutes">in 1 hour and 30 minutes</option>
+                            <option value="in 2 hours">in 2 hours</option>
                     </select>   
                 </div>   
             </div>
@@ -287,7 +288,7 @@ class OrderColumn extends React.Component {
                 <table>
                     <tr>
                         <td class="order-item-name">Total:</td>
-                        <td> <strong> &nbsp;${Number((this.props.total).toFixed('2'))}</strong>
+                        <td> <h2> &nbsp;${Number((this.props.total).toFixed('2'))}</h2>
                         
                         </td>
                     </tr>

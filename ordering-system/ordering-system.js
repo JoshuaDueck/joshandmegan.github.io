@@ -9,6 +9,7 @@ class OrderingSystem extends React.Component {
         var i = 0;
         var newOrders = [];
         var newImages =[];
+        var maxOrderItemID = 0;
         while (decodeURIComponent(searchParams.get(i)) !="null") 
         {
             var name = decodeURIComponent(searchParams.get(i))
@@ -21,13 +22,16 @@ class OrderingSystem extends React.Component {
             else if (orderobj.orderRestaurantName =="Burger Queen"){
                 newImages = newImages.concat(<ImageItem imageLink="src/burger-transparent-bg-2.png"  orderItemID={orderobj.orderItemID}/>)
             }
+            if(orderobj.orderItemID > maxOrderItemID){
+                maxOrderItemID = orderobj.orderItemID;
+            }
             console.log(JSON.stringify(newImages, null, 4));
             i= i +1;
         }
         this.state = {
             selectedRestaurant: -1,
             orders: newOrders,
-            currentOrderItemID: 0,
+            currentOrderItemID: maxOrderItemID+1,
             orderImages: newImages
         };
         this.handleRestaurantSelect = this.handleRestaurantSelect.bind(this);
@@ -169,7 +173,6 @@ class OrderingSystem extends React.Component {
     toCheckOut(){
         var query= this.objectToQuerystring(this.state.orders);
         window.location.href = "checkout.html" + query;
-        // alert(query);
     }
 
     render(){
@@ -204,8 +207,17 @@ class OrderingSystem extends React.Component {
                     <div class="col-sm column-footer">
                         <table>
                             <tr>
-                                <td class="header-title-table"><button class="btn btn-primary" onClick={() => this.toCheckOut()}>Checkout</button></td>
-                                <td><h2>${Number((orderTotal).toFixed(2))}</h2></td>
+                                <td class="order-item-name">Total:</td>
+                                <td> <h2> &nbsp;${Number((orderTotal).toFixed('2'))}</h2>
+                                
+                                </td>
+                            </tr>
+                        </table>  
+                        <table>
+                            <tr>
+                                <td class="order-item-name"> <button onClick={()=>alert("This order has been saved! (Or at least it would be if this were a functioning application!)")} class="btn btn-secondary text-left">Save Order</button>
+                                </td>
+                                <td><button onClick={() => this.toCheckOut()} class="btn btn-primary text-right">Checkout</button></td>
                             </tr>
                         </table>
                     </div>

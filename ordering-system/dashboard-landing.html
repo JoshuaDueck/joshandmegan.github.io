@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
-
 <head>
-    <title>Dashboard | Username</title>
+    <title>Dashboard | ChowTown</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./primary.css">
-	<script src="https://kit.fontawesome.com/06a44ed304.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./primary.css">
+    <script src="https://kit.fontawesome.com/06a44ed304.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-	<header>
+    <header>
 		<a class="header-link" data-toggle="modal" data-target="#helpModal">
 			Help
 		</a>
@@ -22,49 +22,25 @@
 			Contact Us
 		</a>
 	</header>
-	<p style="text-align:right; margin-right:30px; margin-bottom: 60px;">
-		Hi, Username!
-		<a href="./dashboard-landing.html" style="margin-left: 15px;"><button type="button" class="btn btn-danger">Logout</button></a>
-	</p>
-	<h1>Chow Town</h1>
-	
-	<div class="container">   
-		<div class="row header-row">
-			<div class="col-sm"><h2>Saved Orders</h2></div>
-			<div class="col-sm"><h2>Recent Orders</h2></div>
-			<div class="col-sm"><h2>Specials</h2></div>
-		</div>
-		<div class="row">
-			<div class="col-sm previous-orders-column">
-				<br>
-				<p style="text-align: center;">You have not saved any orders!<p>
-			</div>
-			<div class="col-sm previous-orders-column">
-				<br>
-				<form id="recentOrderForm" action="">
-					<button type="submit" class="row restaurant-item" style="border:none;">
-						<div class="col-sm restaurant-image"><img class="restaurant-image" src="./src/burger-transparent-bg.png"></div>
-						<div class="col-md">
-							<div class="row">Burgers for the family</div>
-						</div>
-						<div class="col-sm">$68.62</div>
-					</button>
-				</form>
-			</div>
-			<div class="col-sm previous-orders-column">
-				<br>
-				<p style="text-align: center;">There are no nearby specials at this time!<p>
-			</div>
-		</div>
-	</div>
+
+    <form class="login-form" action="./dashboard-loggedin.html">
+        <button type="submit" class="btn btn-success login-button">Log in</button>
+        <button type="submit" class="btn btn-success">Sign up</button>
+    </form>
+
+    <h1>Chow Town</h1>
+
 	<form class="address-form" action="./ordering-page.html">
 		<label for="fname">Enter your address and click the buttton below to start a new order!</label><br>
-		<input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your address here" style="text-align:center; width: 30%; margin: auto;"><br>
-		<button type="submit" class="btn btn-primary">Create your order</button>
-	</form>
- 
+		<input type="text" id="fname" class="form-control" name="fname" placeholder="Enter your address here" style="text-align:center; width: 30%; margin: auto;"><br>
+        <button type="submit" class="btn btn-primary">Create Your Order</button>
+    </form>
+    <p style= "text-align:center"> or </p>
+    <p style= "text-align:center"> <a href="./dashboard-loggedin.html">Sign up</a> for a more personalized experience</p>
+    
 
-	<!-- Help Modal -->
+
+    	<!-- Help Modal -->
 	<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -155,17 +131,7 @@
 			</div>
 		</div>
 	</div>
-
-
-	<script>
-		document.getElementById('recentOrderForm').addEventListener('submit', function(event){
-			event.preventDefault();
-
-			window.location.href = "ordering-page.html?0=%7B%22key%22%3Anull%2C%22ref%22%3Anull%2C%22props%22%3A%7B%22orderRestaurantName%22%3A%22Burger%20Queen%22%2C%22orderItemName%22%3A%22Big%20Burg%22%2C%22orderItemCost%22%3A%2220.99%22%2C%22orderItemNotes%22%3A%5B%22Lettuce%22%2C%22Onion%22%2C%22Mushroom%22%2C%22Mustard%22%2C%22Ketchup%22%2C%22Pickles%22%5D%2C%22orderItemID%22%3A0%7D%2C%22_owner%22%3Anull%2C%22_store%22%3A%7B%7D%7D&1=%7B%22key%22%3Anull%2C%22ref%22%3Anull%2C%22props%22%3A%7B%22orderRestaurantName%22%3A%22Burger%20Queen%22%2C%22orderItemName%22%3A%22Filling%20Burg%22%2C%22orderItemCost%22%3A%2213.99%22%2C%22orderItemNotes%22%3A%5B%22Lettuce%22%2C%22Tomato%22%2C%22Onion%22%2C%22Mushroom%22%5D%2C%22orderItemID%22%3A1%7D%2C%22_owner%22%3Anull%2C%22_store%22%3A%7B%7D%7D&2=%7B%22key%22%3Anull%2C%22ref%22%3Anull%2C%22props%22%3A%7B%22orderRestaurantName%22%3A%22Burger%20Queen%22%2C%22orderItemName%22%3A%22Filling%20Burg%22%2C%22orderItemCost%22%3A%2213.99%22%2C%22orderItemNotes%22%3A%5B%22Tomato%22%2C%22Onion%22%2C%22Mustard%22%2C%22Pickles%22%2C%22Jalapeno%20Peppers%22%5D%2C%22orderItemID%22%3A2%7D%2C%22_owner%22%3Anull%2C%22_store%22%3A%7B%7D%7D&3=%7B%22key%22%3Anull%2C%22ref%22%3Anull%2C%22props%22%3A%7B%22orderRestaurantName%22%3A%22Burger%20Queen%22%2C%22orderItemName%22%3A%22Average%20Joe%22%2C%22orderItemCost%22%3A%2213.66%22%2C%22orderItemNotes%22%3A%5B%22Lettuce%22%2C%22Mushroom%22%2C%22Barbeque%20Sauce%22%2C%22Pickles%22%5D%2C%22orderItemID%22%3A3%7D%2C%22_owner%22%3Anull%2C%22_store%22%3A%7B%7D%7D&4=%7B%22key%22%3Anull%2C%22ref%22%3Anull%2C%22props%22%3A%7B%22orderRestaurantName%22%3A%22Burger%20Queen%22%2C%22orderItemName%22%3A%22Baby%20Burg%22%2C%22orderItemCost%22%3A%225.99%22%2C%22orderItemNotes%22%3A%5B%5D%2C%22orderItemID%22%3A4%7D%2C%22_owner%22%3Anull%2C%22_store%22%3A%7B%7D%7D";
-		});
-	</script>
-
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
-</html>
+</html> 

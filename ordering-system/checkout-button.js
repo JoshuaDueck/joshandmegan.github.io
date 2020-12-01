@@ -13,8 +13,6 @@ class CheckoutButton extends React.Component {
 	  	return 'You have checked out, and the order is on the way.';
 	}
 
-	// RESEARCH WHAT THE 'e' FUNCTION IS.
-	// Research what the properties (such as onClick) mean.
 	return e(
 	  	'button',
 	  	{ onClick: () => this.setState({ checkedout: true }) },
